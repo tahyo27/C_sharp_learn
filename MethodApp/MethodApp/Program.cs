@@ -17,9 +17,18 @@ myFirstMethod();
 Console.WriteLine("This is outside of the method");
 
 string tmp = "This is temp string";
-void writeSomethingSpecific(string str)
+void WriteSomethingSpecific(string str) //C# 펑션은 이름 앞에 대문자 쓰는듯
 {
     Console.WriteLine($"This is writeSomethingSepecific str is {str}");
 }
-writeSomethingSpecific(tmp);
+WriteSomethingSpecific(tmp);
+
+int AddTwoValues(int value1, int value2)
+{
+    int result = value1 + value2;
+    return result;
+}
+int myResult = AddTwoValues(5, 10);
+Console.WriteLine($"The result is {myResult}");
+
 Console.ReadKey();

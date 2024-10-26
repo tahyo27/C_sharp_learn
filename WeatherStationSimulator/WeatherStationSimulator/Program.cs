@@ -42,17 +42,21 @@
                         tempCount++;
                     }
                 }
-                if(tempCount > count)
+                if (tempCount > count)
                 {
                     count = tempCount;
                     mostCommon = conditions[i];
                 }
             }
+            return mostCommon;
+
+            
+        }
 
         static double CalculateAverage(int[] temperature)
         {
             double sum = 0;
-            for(int i = 0; i < temperature.Length; i++)
+            for (int i = 0; i < temperature.Length; i++)
             {
                 sum += temperature[i];
             }

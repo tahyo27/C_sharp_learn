@@ -13,13 +13,28 @@ namespace ClassesApp
     {
         // meber variable
         // private hides the variable from other classes
-        private string _model = ""; // 시샵에서는 언더바 붙이는게 관례라는듯
+        // private string _model = ""; // 시샵에서는 언더바 붙이는게 관례라는듯
         private string _brand = "";
+        private bool _isLuxury;
 
 
         // Property
-        public string Model { get => _model; set => _model = value; }
-        public string Brand { get => _brand;
+        //public string Model { get => _model; set => _model = value; }
+
+        public string Model { get; set; }
+        public string Brand { 
+            
+            get
+            {
+                if(_isLuxury)
+                {
+                    return _brand + " - Luxury Edition";
+                }
+                else
+                {
+                    return _brand;
+                }
+            }
             set {
                     if(string.IsNullOrEmpty(value))
                     {
@@ -33,12 +48,22 @@ namespace ClassesApp
                 } 
         }
 
+        // public bool IsLuxury { get => _isLuxury; set => _isLuxury = value; }
+        public bool IsLuxury { get; set; }
 
         // Constructor
-        public Car(string model, string brand) {
+        public Car(string model, string brand, bool isLuxury) {
             Model = model;
             Brand = brand;
+            
             Console.WriteLine($"A {Brand} of the model {Model} has been created");
+            
+            IsLuxury = isLuxury;
+        }
+
+        public void Drive()
+        {
+            Console.WriteLine($"I'm a {Model} driving");
         }
     }
 }

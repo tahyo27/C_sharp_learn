@@ -1,5 +1,6 @@
 ﻿namespace ClassesApp
 {
+    // Access Modifier internal
     internal class Program
     {
         static void Main(string[] args)

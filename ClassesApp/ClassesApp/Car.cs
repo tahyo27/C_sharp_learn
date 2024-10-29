@@ -11,6 +11,8 @@ namespace ClassesApp
     // within the same assembly
     internal class Car
     {
+        // 스태틱 언더바 말고 대문자 쓰는듯
+        public static int NumberOfCars = 0;
         // meber variable
         // private hides the variable from other classes
         // private string _model = ""; // 시샵에서는 언더바 붙이는게 관례라는듯
@@ -53,12 +55,20 @@ namespace ClassesApp
 
         // Constructor
         public Car(string model, string brand, bool isLuxury) {
+
+            NumberOfCars++;
+
             Model = model;
             Brand = brand;
             
             Console.WriteLine($"A {Brand} of the model {Model} has been created");
             
             IsLuxury = isLuxury;
+        }
+
+        public Car()
+        {
+            NumberOfCars++;
         }
 
         public void Drive()

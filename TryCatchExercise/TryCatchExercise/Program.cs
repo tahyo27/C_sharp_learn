@@ -9,6 +9,17 @@ namespace TryCatchExercise
             Console.WriteLine("Try catch exercise");
 
             Debug.WriteLine("Main method is running");
+
+            try
+            {
+                LevelOne();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught in Main: " + ex.Message);
+            }
+            Console.WriteLine("App is still running!");
+            Console.ReadKey();
         }
 
         int GetUserAge(string input)
@@ -59,6 +70,18 @@ namespace TryCatchExercise
             {
                 Console.WriteLine("Index out of range.");
             }
+        }
+
+        static void LevelOne()
+        {
+            LevelTwo();
+        }
+
+        static void LevelTwo()
+        {
+            Console.WriteLine("Level two before throw!");
+            throw new FormatException("Something went wrong!");
+            Console.WriteLine("Level two After throw!");
         }
     }
 }

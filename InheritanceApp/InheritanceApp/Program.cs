@@ -78,9 +78,20 @@
 
     public class Employee : Person
     {
-        public Employee(string name, int age) : base(name, age)
+        public string JobTitle { get; private set; }
+        public int EmployeeID { get; private set; }
+        public Employee(string name, int age, string jobTitle, int employeeID)
+             : base(name, age) // Calling the base class constructor
         {
+            JobTitle = jobTitle;
+            EmployeeID = employeeID;
             Console.WriteLine("Employee constructor called");
+        }
+
+        public void DisplayEmployeeInfo()
+        {
+            DisplayPersonInfo(); // Call method from base class
+            Console.WriteLine($"Job Title: {JobTitle}, Employee ID: {EmployeeID}");
         }
     }
 

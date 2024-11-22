@@ -22,8 +22,13 @@
             <RowDefinition Height="50" /> 
             <RowDefinition Height="10" /> 
         </Grid.RowDefinitions>
-        <Button Grid.Row="5" Grid.Column="1" Content="Create Todo" />
-        <TextBox Grid.Row="3" Grid.Column="1" Background="Black" Foreground="White"/>
+        <Button Click="AddTodoButton_Click" Grid.Row="5" Grid.Column="1" Content="Create Todo" />
+        
+        <TextBox x:Name="TodoInput" Grid.Row="3" Grid.Column="1" Background="Black" Foreground="White"/>
+        
+        <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="TodoList" Background="DimGray"></StackPanel>
+        </ScrollViewer>
 
 
 

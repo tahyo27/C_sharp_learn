@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicApp", "LogicApp\LogicApp.csproj", "{6D4B2CD5-C6D4-4D09-A7AB-189A927EB4BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBindApp", "DataBindApp\DataBindApp.csproj", "{AA865404-7D2B-44FE-8290-E27E87772CF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6D4B2CD5-C6D4-4D09-A7AB-189A927EB4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D4B2CD5-C6D4-4D09-A7AB-189A927EB4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D4B2CD5-C6D4-4D09-A7AB-189A927EB4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D4B2CD5-C6D4-4D09-A7AB-189A927EB4BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA865404-7D2B-44FE-8290-E27E87772CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA865404-7D2B-44FE-8290-E27E87772CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA865404-7D2B-44FE-8290-E27E87772CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA865404-7D2B-44FE-8290-E27E87772CF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A469F24B-A8E2-4070-95F7-24B35004BBB1}
+		SolutionGuid = {A5C145D3-9D58-4A03-A566-D796458D0AE3}
 	EndGlobalSection
 EndGlobal

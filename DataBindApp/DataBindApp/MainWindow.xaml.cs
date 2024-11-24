@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using DataBindApp.Data;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,24 @@ namespace DataBindApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        Person person = new Person
+        {
+            Name = "John",
+            Age = 20
+        };
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = person;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string personData = person.Name + " is " + person.Age + " years old";
+            // 버튼 클릭 시 실행할 코드 
+            MessageBox.Show(personData);
         }
     }
+
+   
 }

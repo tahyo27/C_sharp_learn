@@ -46,6 +46,24 @@ namespace CurrencyConverter_Static
             dtCurrency.Rows.Add("POUND", 5);
             dtCurrency.Rows.Add("DEM", 43);
 
+            //Datatable data assigned from the currency combobox
+            cmbFromCurrency.ItemsSource = dtCurrency.DefaultView;
+
+            //DisplayMemberPath property is used to display data in the combobox
+            cmbFromCurrency.DisplayMemberPath = "Text";
+
+            //SelectedValuePath property is used to set the value in the combobox
+            cmbFromCurrency.SelectedValuePath = "Value";
+
+            //SelectedIndex property is used to bind the combobox to its default selected item 
+            cmbFromCurrency.SelectedIndex = 0;
+
+            //All properties are set to To Currency combobox as it is in the From Currency combobox
+            cmbToCurrency.ItemsSource = dtCurrency.DefaultView;
+            cmbToCurrency.DisplayMemberPath = "Text";
+            cmbToCurrency.SelectedValuePath = "Value";
+            cmbToCurrency.SelectedIndex = 0;
+
         }
 
         private void Convert_Click(object sender, RoutedEventArgs e)

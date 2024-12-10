@@ -7,6 +7,25 @@
             UniversityManager um = new UniversityManager();
             um.MaleStudents();
             um.FemaleStudents();
+            um.SortStudentByAge();
+            um.AllStudentsFromBeijingTech();
+            um.AllStudentsFromThatUni(1);
+
+            int[] someInts = { 30, 12, 4, 3, 12 };
+            IEnumerable<int> sortedInts = from i in someInts orderby i select i;
+            IEnumerable<int> reversedInts = sortedInts.Reverse();
+
+            foreach(int i in reversedInts)
+            {
+                Console.WriteLine(i);
+            }
+
+            IEnumerable<int> reversedInts2 = from i in someInts orderby i descending select i;
+
+            foreach (int i in reversedInts2)
+            {
+                Console.WriteLine(i);
+            }
 
             Console.ReadKey();
         }
@@ -49,6 +68,42 @@
             Console.WriteLine("Female - Students: ");
 
             foreach (Student student in femaleStudents)
+            {
+                student.Print();
+            }
+        }
+        public void SortStudentByAge()
+        {
+            var sortedStudents = from student in students orderby student.Age select student;
+            Console.WriteLine("Students sorted by Age");
+            foreach (Student student in sortedStudents)
+            {
+                student.Print();
+            }
+        }
+
+        public void AllStudentsFromBeijingTech()
+        {
+            var bjtStudents = from student in students join university in universities on student.UniversityId equals university.Id
+                              where university.Name == "Beijing Tech"
+                              select student;
+
+            Console.WriteLine("Students from Beijing Tech");
+            foreach (Student student in bjtStudents)
+            {
+                student.Print();
+            }
+        }
+
+        public void AllStudentsFromThatUni(int Id)
+        {
+            var myStudents = from student in students
+                             join university in universities on student.UniversityId equals university.Id
+                             where university.Id == Id
+                             select student;
+
+            Console.WriteLine($"Students from that uni {Id} ");
+            foreach (Student student in myStudents)
             {
                 student.Print();
             }

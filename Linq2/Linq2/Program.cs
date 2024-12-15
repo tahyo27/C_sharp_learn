@@ -11,6 +11,8 @@
             um.AllStudentsFromBeijingTech();
             um.AllStudentsFromThatUni(1);
 
+            um.StudentAndUniversityNameCollection();
+
             int[] someInts = { 30, 12, 4, 3, 12 };
             IEnumerable<int> sortedInts = from i in someInts orderby i select i;
             IEnumerable<int> reversedInts = sortedInts.Reverse();
@@ -49,6 +51,8 @@
             students.Add(new Student { Id = 2, Name = "Leyla", Gender = "female", Age = 19, UniversityId = 2});
             students.Add(new Student { Id = 2, Name = "James", Gender = "male", Age = 25, UniversityId = 2});
             students.Add(new Student { Id = 2, Name = "Linda", Gender = "female", Age = 22, UniversityId = 2});
+
+
         }
 
         public void MaleStudents()
@@ -107,6 +111,22 @@
             {
                 student.Print();
             }
+        }
+
+        public void StudentAndUniversityNameCollection()
+        {
+            var newCollection = from student in students
+                                join university in universities on student.UniversityId equals university.Id
+                                orderby student.Name
+                                select new { StudentName = student.Name, UniversityName = university.Name };
+
+            Console.WriteLine("New Collection");
+
+            foreach(var col in newCollection)
+            {
+                Console.WriteLine("Student {0} from University {1}", col.StudentName, col.UniversityName);
+            }
+
         }
     }
 

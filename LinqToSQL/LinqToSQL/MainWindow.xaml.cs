@@ -36,7 +36,12 @@ namespace LinqToSQL
             //Insertlectures();
             //InsertStudentLectureAssociations();
             //GetUniversityOfToni();
-            GetLectureFromToni();
+            //GetLectureFromToni();
+            //GetAllStudentFromYale();
+            //GetAllUniversitiesWithTransgenders();
+            //GetAllLecturesFromBeijingTech();
+            //UpdateToni();
+            DeleteJames();
         }
 
         public void InsertUniversities()
@@ -127,6 +132,58 @@ namespace LinqToSQL
             var tonisLectures = from sl in Toni.StudentLecture select sl.Lecture;
 
             MainDataGrid.ItemsSource = tonisLectures;
+        }
+
+        public void GetAllStudentFromYale()
+        {
+            IQueryable<Student> studentsFromYale = from student in dataContext.Student
+                                   where student.University.Name == "Yale"
+                                   select student;
+
+            MainDataGrid.ItemsSource = studentsFromYale;
+        }
+
+        public void GetAllUniversitiesWithTransgenders()
+        {
+            var transgenderUniversities = from student in dataContext.Student
+                                          join universty in dataContext.University
+                                          on student.University equals universty
+                                          where student.Gender == "trans-gender"
+                                          select universty;
+
+            MainDataGrid.ItemsSource = transgenderUniversities;
+        }
+
+        public void GetAllLecturesFromBeijingTech()
+        {
+            var lecturesFromBeijingTech = from sl in dataContext.StudentLecture
+                                          join student in dataContext.Student
+                                          on sl.StudentId equals student.Id
+                                          where student.University.Name == "Beijing Tech"
+                                          select sl.Lecture;
+
+            MainDataGrid.ItemsSource = lecturesFromBeijingTech;
+        }
+
+        public void UpdateToni()
+        {
+            Student Toni = dataContext.Student.FirstOrDefault(st => st.Name == "Tonie");
+
+            Toni.Name = "Antonio";
+
+            dataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = dataContext.Student;
+        }
+
+        public void DeleteJames()
+        {
+            Student Jame = dataContext.Student.FirstOrDefault(st => st.Name == "James");
+
+            dataContext.Student.DeleteOnSubmit(Jame);
+            dataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = dataContext.Student;
         }
     }
 }

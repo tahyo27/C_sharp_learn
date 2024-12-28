@@ -17,6 +17,27 @@
         }
 
     }
+    class OrderProcessor // 명사
+    {
+        // 불형식 보통 앞에 is나 has 사용
+        private bool hasError = false;
+        private bool isValid = true;
+
+        public void ProcessOrder() // 동사형식
+        {
+
+        }
+
+        public void PrintOrder()
+        {
+
+        }
+
+        public void DeleteOrder()
+        {
+
+        }
+    }
     class CustomerService // 파스칼 케이스 대문자로 시작
     {
         private const int MAX_CUSTOMERS = 100; // 다 대문자
@@ -29,6 +50,18 @@
             string customerName = "John Doe"; // camelCase
             return customerName;
         }
+
+        //public void save() OK이나 최선의 방법은 아님 bad
+        //{
+
+        //
+        public void SaveCustomer() // good
+        {
+
+        }
+        // 메서드 이름에 좋은것 Is, Get, Set, Has, Can
+        public bool HasError() { return false; }
+        public bool CanReceiveEmails() { return true; }
     }
     class CustomerTestSecond
     {
@@ -39,5 +72,51 @@
             _customerName = customerName;
         }
     }
+    // 좋은 주석과 나쁜 주석
 
+    public class MathUtils
+    {
+        // Comment
+
+        // Bad : Calculate the factorial number <- 이미 메서드명으로 있는 정보임
+        // Not what but Why 무엇인지 적지말고 무슨 일이 일어나고 왜 주요한지 적으라는듯 
+        // ex) 재귀 접근방식이 직관적이기 때문에 재귀 접근을 쓰고 있습니다.
+        /*
+         * 
+         * 
+         * 
+         * 
+         */
+        public int CalculateFactorial(int number)
+        {
+            if (number <= 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return number * CalculateFactorial(number - 1);
+            }
+        }
+        // 바이너리 서치를 사용하는 이유는 대규모 데이터에서
+        // 퍼포먼스를 향상시키기 위함입니다
+        public int BinarySearch(int[] sortedArray, int target)
+        {
+            int left = 0;
+            int right = sortedArray.Length - 1;
+
+            while(left <= right)
+            {
+                int middle = (left + right) / 2;
+                if (sortedArray[middle] == target)
+                    return middle;
+                else if (sortedArray[middle] < target)
+                    left = middle + 1;
+                else
+                    right = middle - 1;
+            }
+            return -1;
+        }
+        // TODO: 형식 보기 작업목록에서 확인 가능 미완료 작업 있을때 쓰면 좋음
+    }
 }

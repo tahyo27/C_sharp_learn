@@ -13,10 +13,29 @@
             //good
             int studentCount = 100;
             string studentName = "John";
+
+            Customer customer = new Customer();
+            int id = customer.Id;
             
         }
 
     }
+    // 서머리 쓰면 설명 볼 수 있음
+    /// <summary>
+    /// Represents a customer with Id and Name 
+    /// </summary>
+    public class Customer
+    {
+        /// <summary>
+        /// Gets the Id of the customer
+        /// </summary>
+        public int Id { get; }
+        /// <summary>
+        /// Gets or sets the name of the customer
+        /// </summary>
+        public string Name { get; }
+    }
+
     class OrderProcessor // 명사
     {
         // 불형식 보통 앞에 is나 has 사용
@@ -38,13 +57,23 @@
 
         }
     }
+
+    /// <summary>
+    /// Provides functionalities for handling customers
+    /// </summary>
     class CustomerService // 파스칼 케이스 대문자로 시작
     {
+         
         private const int MAX_CUSTOMERS = 100; // 다 대문자
         public int CustomerCount { get; set; } // 파스칼 prop 파스칼로 씀
 
         private string lastCustomerName = "John"; // 카멜 프라이빗 및 로컬영역
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="customerId">The id for the customer to retrieve</param>
+        /// <returns>Returns the customer found by id</returns>
         public string GetCustomerName(int customerId) //파스칼 매개변수 카멜
         {
             string customerName = "John Doe"; // camelCase

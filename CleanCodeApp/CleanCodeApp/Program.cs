@@ -16,7 +16,9 @@
 
             Customer customer = new Customer();
             int id = customer.Id;
-            
+
+            // DRY 원칙 Don't repeat yourself 같은거 복붙하지 말고 최대한 중복제거하라는 뜻인듯
+            // KISS Principle Keep it simple, stupid 로직 복잡하게 만들지 마라 만들 수 있는 쉬운 방법으로
         }
 
     }
@@ -36,7 +38,7 @@
         public string Name { get; }
     }
 
-    class OrderProcessor // 명사
+    class OrderProcessor // 명사     논리별 메서드 만들어서 구현하기
     {
         // 불형식 보통 앞에 is나 has 사용
         private bool hasError = false;

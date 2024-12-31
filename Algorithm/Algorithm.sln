@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baek 10816", "Baek 10816\Ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baek 1021", "Baek 1021\Baek 1021.csproj", "{A6BCCF72-1790-4D6A-9FBA-2284465EF136}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baek 4949", "Baek 4949\Baek 4949.csproj", "{89104CE8-30DB-43F3-8A27-D363F5011F33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{A6BCCF72-1790-4D6A-9FBA-2284465EF136}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6BCCF72-1790-4D6A-9FBA-2284465EF136}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6BCCF72-1790-4D6A-9FBA-2284465EF136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89104CE8-30DB-43F3-8A27-D363F5011F33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89104CE8-30DB-43F3-8A27-D363F5011F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89104CE8-30DB-43F3-8A27-D363F5011F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89104CE8-30DB-43F3-8A27-D363F5011F33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

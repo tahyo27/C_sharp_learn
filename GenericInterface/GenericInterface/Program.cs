@@ -12,7 +12,7 @@
         int Id { get; }
     }
 
-    internal interface IRepository<T> where T : IEntity
+    internal interface IRepository<T> // where T : IEntity
     {
         void Add(T entity);
         void Remove(T entity);
@@ -29,13 +29,16 @@
         public int Id { get; set; }
         public string Name { get; set; }
     }
-    internal class ProductRepository : IRepository<Product>
+    internal class Repository<T> : IRepository<T>
     {
-        public void Add(Product entity)
+        public void Add(T entity)
         {
+            //if(entity.GetType() == typeof(Product))
+            //{
 
+            //}
         }
-        public void Remove(Product entity)
+        public void Remove(T entity)
         {
 
         }

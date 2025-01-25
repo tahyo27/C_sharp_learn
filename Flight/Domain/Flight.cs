@@ -13,10 +13,10 @@ namespace Domain
         public object? Book(string passengerEmail, int numberOfSeats)
         {
             // 에러까지 테스트
-            //if(numberOfSeats > this.RemainingNumberOfSeats)
-            //{
-            //    return new OverbookingError();
-            //}
+            if (numberOfSeats > this.RemainingNumberOfSeats)
+            {
+                return new OverbookingError();
+            }
             RemainingNumberOfSeats -= numberOfSeats;
             return null;
             //return new OverbookingError();

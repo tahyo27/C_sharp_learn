@@ -51,5 +51,15 @@ namespace FlightTest
             var error = flight.Book("jannick@tutorialseu.com", 1);
             error.Should().BeNull();
         }
+
+        [Fact]
+        public void Remembers_booking()
+        {
+            var flight = new Flight(seatCapacity: 150);
+
+            flight.Book(passengerEmail: "a@b.com", numberOfSeats: 4);
+
+            flight.BookingList.Should().ContainEquivalentOf(new Booking("a@b.com", 4));
+        }
     }
 }

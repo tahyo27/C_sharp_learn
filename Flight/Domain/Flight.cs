@@ -4,6 +4,7 @@ namespace Domain
 {
     public class Flight
     {
+        public List<Booking> BookingList { get; set; } =  new List<Booking>();
         public int RemainingNumberOfSeats { get; set; }
         public Flight(int seatCapacity)
         {
@@ -18,6 +19,9 @@ namespace Domain
                 return new OverbookingError();
             }
             RemainingNumberOfSeats -= numberOfSeats;
+
+            BookingList.Add(new Booking(passengerEmail, numberOfSeats));
+
             return null;
             //return new OverbookingError();
         }

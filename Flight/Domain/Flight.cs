@@ -30,5 +30,9 @@ namespace Domain
             //return new OverbookingError();
         }
 
+        public void CancelBooking(string passengerEmail, int numberOfSeats)
+        {
+            RemainingNumberOfSeats += numberOfSeats;
+        }
     }
 }

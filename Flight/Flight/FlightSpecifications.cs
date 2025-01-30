@@ -83,5 +83,22 @@ namespace FlightTest
             // then
             flight.RemainingNumberOfSeats.Should().Be(remainingNumberOfSeats);
         }
+
+        [Fact]
+        public void Doesnt_cancel_bookings_for_passengers_who_have_not_booked()
+        {
+            var flight = new Flight(3);
+            var error = flight.CancelBooking(passengerEmail: "a@b.com", numberOfSeats: 2);
+            error.Should().BeOfType<BookingNotFoundError>();
+        }
+
+        [Fact]
+        public void Return_null_when_successfully_cancels_a_booking()
+        {
+            var flight = new Flight(3);
+            flight.Book(passengerEmail: "a@b.com", numberOfSeats: 1);
+            var error = flight.CancelBooking(passengerEmail: "a@b.com", numberOfSeats: 1);
+            error.Should().BeNull();
+        }
     }
 }

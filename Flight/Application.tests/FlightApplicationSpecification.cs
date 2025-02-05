@@ -9,8 +9,10 @@ namespace Application.tests
 {
     public class FlightApplicationSpecification
     {
-        [Fact]
-        public void Books_flight()
+        [Theory]
+        [InlineData("M@m.cpom", 2)]
+        [InlineData("a@a.com", 2)]
+        public void Books_flight(string passengerEmail, int numberOfSeats)
         {
             var entities = new Entities(new DbContextOptionsBuilder<Entities>()
                 .UseInMemoryDatabase("Flights")
@@ -22,10 +24,10 @@ namespace Application.tests
             var bookingService = new BookingService(entities: entities);
 
             bookingService.Book(new BookDto(
-                flightId: flight.Id, passengerEmail: "a@b.com", numberOfSeats: 2));
+                flightId: flight.Id, passengerEmail, numberOfSeats));
 
             bookingService.FindBookings(flight.Id).Should().ContainEquivalentOf(
-                new BookingRm(passengerEmail: "a@b.com", numberOfSeats: 2)
+                new BookingRm(passengerEmail, numberOfSeats)
                 );
         }
     }

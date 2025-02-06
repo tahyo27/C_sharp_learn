@@ -11,7 +11,7 @@ namespace Domain
         public string Email { get; set; }
         public int NumberOfSeats { get; set; }
 
-        public Booking(string email, int numberOfSeats)
+        public Booking(string email,  int numberOfSeats)
         {
             this.Email = email;
             this.NumberOfSeats = numberOfSeats;

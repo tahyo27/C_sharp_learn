@@ -27,5 +27,15 @@ namespace Application
                     ));
 
         }
+
+        public void CancelBooking(CancelBookingDto cancelBookingDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetRmainingNumberOfSeatsFor(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

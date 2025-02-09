@@ -30,12 +30,14 @@ namespace Application
 
         public void CancelBooking(CancelBookingDto cancelBookingDto)
         {
-            throw new NotImplementedException();
+            var flight = Entities.Flights.Find(cancelBookingDto.FlightId);
+            flight.CancelBooking(cancelBookingDto.PassengerEmail, cancelBookingDto.NumberOfSeats);
+            Entities.SaveChanges();
         }
 
-        public object GetRmainingNumberOfSeatsFor(Guid id)
+        public object GetRmainingNumberOfSeatsFor(Guid flightId)
         {
-            throw new NotImplementedException();
+            return Entities.Flights.Find(flightId).RemainingNumberOfSeats;
         }
     }
 }

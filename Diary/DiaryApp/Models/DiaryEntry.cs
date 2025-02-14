@@ -2,9 +2,13 @@
 {
     public class DiaryEntry
     {
+        [Key]
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-        public DateTime CreatedDate { get; set; }
+        [Required]
+        public string Title { get; set; } = string.Empty;
+        [Required]
+        public string Content { get; set; } = string.Empty;
+        [Required]
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
     }
 }

@@ -1,3 +1,6 @@
+using DiaryApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace DiaryApp
 {
     public class Program
@@ -8,6 +11,8 @@ namespace DiaryApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<ApplicationDbContext>(
+                options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 

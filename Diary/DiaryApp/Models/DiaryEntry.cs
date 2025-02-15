@@ -1,4 +1,6 @@
-﻿namespace DiaryApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DiaryApp.Models
 {
     public class DiaryEntry
     {

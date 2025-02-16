@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DiaryApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DiaryApp.Data
 {
@@ -17,5 +18,13 @@ namespace DiaryApp.Data
         {
             
         }
-    }
+
+        public DbSet<DiaryEntry> DiaryEntries { get; set; }
+
+        // 테이블을 추가하는 4가지 스텝
+        // 1. 모델 클래스를 만든다
+        // 2. DB Set을 추가한다
+        // 3. add-migration AddDiaryEntryTable
+        // 4. 데이터베이스 업데이트
+    }   
 }

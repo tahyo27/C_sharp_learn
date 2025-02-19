@@ -21,6 +21,33 @@ namespace DiaryApp.Data
 
         public DbSet<DiaryEntry> DiaryEntries { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<DiaryEntry>().HasData(
+                new DiaryEntry { 
+                    Id = 1,
+                    Title="Went Hiking",
+                    Content="Went hiking with Joe!",
+                    CreatedDate = new DateTime(2025, 2, 19, 13, 10, 30)
+                },
+                new DiaryEntry { 
+                    Id = 2, 
+                    Title = "Went Shopping", 
+                    Content = "Went shopping with Joe!", 
+                    CreatedDate = new DateTime(2025, 2, 19, 14, 10, 30)
+                },
+                new DiaryEntry
+                {
+                    Id = 3,
+                    Title = "Went Diving",
+                    Content = "Went diving with Joe!",
+                    CreatedDate = new DateTime(2025, 2, 19, 15, 10, 30)
+                }
+            );
+        }
+
         // 테이블을 추가하는 4가지 스텝
         // 1. 모델 클래스를 만든다
         // 2. DB Set을 추가한다

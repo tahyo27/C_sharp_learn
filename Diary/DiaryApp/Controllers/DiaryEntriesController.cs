@@ -55,5 +55,34 @@ namespace DiaryApp.Controllers
 
             return View(diaryEntry);
         }
+
+        [HttpPost]
+        public IActionResult Edit(DiaryEntry obj)
+        {
+
+            if (obj != null && obj.Title.Length < 3)
+            {
+                ModelState.AddModelError("Title", "Title is too short");
+            }
+
+            var entry = _db.DiaryEntries.FirstOrDefault(e => e.Id == obj.Id);
+            if(entry == null)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                entry.Title = obj.Title;
+                entry.Content = obj.Content;
+                entry.CreatedDate = obj.CreatedDate;
+                _db.SaveChanges();        
+                
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(obj);
+        }
+
     }
 }

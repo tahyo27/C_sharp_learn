@@ -59,47 +59,65 @@ namespace DiaryApp.Controllers
         [HttpPost]
         public IActionResult Edit(DiaryEntry obj)
         {
-
-            if (obj != null && obj.Title.Length < 3)
+            if(ModelState.IsValid)
             {
-                ModelState.AddModelError("Title", "Title is too short");
+                _db.DiaryEntries.Update(obj); // 업데이트로 간단히 되는듯
+                _db.SaveChanges();
+                return Redirect("Index");
             }
 
-            var entry = _db.DiaryEntries.FirstOrDefault(e => e.Id == obj.Id);
-            if(entry == null)
-            {
-                return NotFound();
-            }
+            //if (obj != null && obj.Title.Length < 3)
+            //{
+            //    ModelState.AddModelError("Title", "Title is too short");
+            //}
 
-            if (ModelState.IsValid)
-            {
-                entry.Title = obj.Title;
-                entry.Content = obj.Content;
-                entry.CreatedDate = obj.CreatedDate;
-                _db.SaveChanges();        
+            //var entry = _db.DiaryEntries.FirstOrDefault(e => e.Id == obj.Id);
+            //if(entry == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //if (ModelState.IsValid)
+            //{
+            //    entry.Title = obj.Title;
+            //    entry.Content = obj.Content;
+            //    entry.CreatedDate = obj.CreatedDate;
+            //    _db.SaveChanges();        
                 
-                return RedirectToAction("Index", "Home");
-            }
+            //    return RedirectToAction("Index", "Home");
+            //}
 
             return View(obj);
         }
 
-        public IActionResult Delete(int? id)
+        [HttpGet]
+        public IActionResult Delete(int id)
         {
-            if(id == null || id == 0)
-            {
-                return NotFound();
-            }
+            // 여기서 모든걸 처리하는게 아니라 서치만
+            //if(id == null || id == 0)
+            //{
+            //    return NotFound();
+            //}
 
-            var entry = _db.DiaryEntries.FirstOrDefault(e => e.Id == id);
+            var entry = _db.DiaryEntries.Find(id);
 
             if (entry == null)
             {
                 return NotFound();
             }
+            //_db.DiaryEntries.Remove(entry);
+            //_db.SaveChanges();
+            return Redirect("Index");
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var entry = _db.DiaryEntries.Find(id);
+
             _db.DiaryEntries.Remove(entry);
             _db.SaveChanges();
-            return Redirect("Index");
+            return RedirectToAction("Index");
         }
 
     }

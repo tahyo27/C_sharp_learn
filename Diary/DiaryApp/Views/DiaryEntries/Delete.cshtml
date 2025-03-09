@@ -1,0 +1,15 @@
+﻿@model DiaryEntry
+
+<h2>삭제 확인</h2>
+<p>다음 항목을 정말로 삭제하시겠습니까?</p>
+
+<div>
+    <p>제목: @Model.Title</p>
+    <p>내용: @Model.Content</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">삭제</button>
+    <a asp-action="Index">취소</a>
+</form>

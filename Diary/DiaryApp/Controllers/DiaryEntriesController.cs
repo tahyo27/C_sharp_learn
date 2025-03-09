@@ -107,7 +107,7 @@ namespace DiaryApp.Controllers
             }
             //_db.DiaryEntries.Remove(entry);
             //_db.SaveChanges();
-            return Redirect("Index");
+            return View(entry);
         }
 
         [HttpPost, ActionName("Delete")]
@@ -117,6 +117,7 @@ namespace DiaryApp.Controllers
 
             _db.DiaryEntries.Remove(entry);
             _db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

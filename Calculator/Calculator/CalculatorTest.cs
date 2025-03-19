@@ -13,18 +13,18 @@ namespace CalculatorTest
         [Fact]
         public void Sum_of_2_and_2_should_be_4()
         => new Calculator().Sum(2, 2).Should().Be(2);
-            // Sum 메서드의 미래를 적고있음
-            //var calculator = new Calculator();
-            //var result = calculator.Sum(2, 2);
+        // Sum 메서드의 미래를 적고있음
+        //var calculator = new Calculator();
+        //var result = calculator.Sum(2, 2);
 
-            //result.Should().Be(4);
-            // 이렇게 하지말고 Fluent Assertion Nuget 패키지에서 받아 사용
-            //if(result != 4)
-            //{
-            //    
-            //    throw new Exception($"The Sum(2, 2) was expected to be 4 but it's {result}");
-            //}
-        
+        //result.Should().Be(4);
+        // 이렇게 하지말고 Fluent Assertion Nuget 패키지에서 받아 사용
+        //if(result != 4)
+        //{
+        //    
+        //    throw new Exception($"The Sum(2, 2) was expected to be 4 but it's {result}");
+        //}
+
 
 
     }

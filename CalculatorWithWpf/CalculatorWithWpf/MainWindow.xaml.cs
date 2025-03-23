@@ -19,6 +19,20 @@ namespace CalculatorWithWpf
         public MainWindow()
         {
             InitializeComponent();
+
+            resultLabel.Content = "0";
+        }
+
+        private void sevenButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(resultLabel.Content.ToString().Equals("0"))
+            {
+                resultLabel.Content = "7";
+            }
+            else
+            {
+                resultLabel.Content = $"{resultLabel.Content}7";
+            }
         }
     }
 }

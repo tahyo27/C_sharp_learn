@@ -55,15 +55,56 @@ namespace CalculatorWithWpf
             resultLabel.Content = "0";
         }
 
-        private void sevenButton_Click(object sender, RoutedEventArgs e)
+        private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
-            if(resultLabel.Content.ToString().Equals("0"))
+            int selectedValue = 0;
+            if (sender == zeroButton)
             {
-                resultLabel.Content = "7";
+                selectedValue = 0;
+            }
+            else if (sender == oneButton)
+            {
+                selectedValue = 1;
+            }
+            else if (sender == twoButton)
+            {
+                selectedValue = 2;
+            }
+            else if (sender == threeButton)
+            {
+                selectedValue = 3;
+            }
+            else if (sender == fourButton)
+            {
+                selectedValue = 4;
+            }
+            else if (sender == fiveButton)
+            {
+                selectedValue = 5;
+            }
+            else if (sender == sixButton)
+            {
+                selectedValue = 6;
+            }
+            else if (sender == sevenButton)
+            {
+                selectedValue = 7;
+            }
+            else if (sender == eightButton)
+            {
+                selectedValue = 8;
+            }
+            else if (sender == nineButton)
+            {
+                selectedValue = 9;
+            }
+            if (resultLabel.Content.ToString().Equals("0"))
+            {
+                resultLabel.Content = $"{selectedValue}";
             }
             else
             {
-                resultLabel.Content = $"{resultLabel.Content}7";
+                resultLabel.Content = $"{resultLabel.Content}{selectedValue}";
             }
         }
     }

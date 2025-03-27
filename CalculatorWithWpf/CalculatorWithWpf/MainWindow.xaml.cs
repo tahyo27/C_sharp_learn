@@ -1,13 +1,5 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CalculatorWithWpf
 {
@@ -17,6 +9,7 @@ namespace CalculatorWithWpf
     public partial class MainWindow : Window
     {
         double lastNumber, result;
+        SelectedOperator SelectedOperator;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +22,26 @@ namespace CalculatorWithWpf
 
         private void EqualButton_Click(object sender, RoutedEventArgs e)
         {
-
+            double newNumber;
+            if (double.TryParse(resultLabel.Content.ToString(), out newNumber))
+            {
+                switch (SelectedOperator)
+                {
+                    case SelectedOperator.Addition:
+                        result = SimpleMath.Add(lastNumber, newNumber);
+                        break;
+                    case SelectedOperator.Sustraction:
+                        result = SimpleMath.Sustraction(lastNumber, newNumber);
+                        break;
+                    case SelectedOperator.Multiplication:
+                        result = SimpleMath.Multifly(lastNumber, newNumber);
+                        break;
+                    case SelectedOperator.Division:
+                        result = SimpleMath.Divide(lastNumber, newNumber);
+                        break;
+                }
+            }
+            resultLabel.Content = result.ToString();
         }
 
         private void PercentageButton_Click(object sender, RoutedEventArgs e)
@@ -43,7 +55,7 @@ namespace CalculatorWithWpf
 
         private void NegativeButton_Click(object sender, RoutedEventArgs e)
         {
-            if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
             {
                 lastNumber = lastNumber * -1;
                 resultLabel.Content = lastNumber.ToString();
@@ -61,6 +73,36 @@ namespace CalculatorWithWpf
             {
                 resultLabel.Content = "0";
             }
+
+            if (sender == multiButton)
+            {
+                SelectedOperator = SelectedOperator.Multiplication;
+            }
+            else if (sender == divisionButton)
+            {
+                SelectedOperator = SelectedOperator.Division;
+            }
+            else if (sender == plusButton)
+            {
+                SelectedOperator = SelectedOperator.Addition;
+            }
+            else if (sender == minusButton)
+            {
+                SelectedOperator = SelectedOperator.Sustraction;
+            }
+        }
+
+        private void pointButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (resultLabel.Content.ToString().Contains("."))
+            {
+                // Do Notiong
+            }
+            else
+            {
+                resultLabel.Content = $"{resultLabel.Content}.";
+            }
+
         }
 
         private void NumberButton_Click(object sender, RoutedEventArgs e)
@@ -75,6 +117,34 @@ namespace CalculatorWithWpf
             {
                 resultLabel.Content = $"{resultLabel.Content}{selectedValue}";
             }
+        }
+
+
+    }
+    public enum SelectedOperator
+    {
+        Addition,
+        Sustraction,
+        Multiplication,
+        Division
+    }
+    public class SimpleMath
+    {
+        public static double Add(double n1, double n2)
+        {
+            return n1 + n2;
+        }
+        public static double Sustraction(double n1, double n2)
+        {
+            return n1 - n2;
+        }
+        public static double Multifly(double n1, double n2)
+        {
+            return n1 * n2;
+        }
+        public static double Divide(double n1, double n2)
+        {
+            return n1 / n2;
         }
     }
 }

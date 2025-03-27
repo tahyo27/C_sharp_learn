@@ -94,7 +94,8 @@
                 Grid.Row="4"
                 Grid.Column="2"
                 />
-        <Button x:Name="pointBButton" Content="." 
+        <Button x:Name="pointButton" Content="." 
+                Click="pointButton_Click"
                 Margin="5"
                 Grid.Row="5"
                 Grid.Column="2"

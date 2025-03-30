@@ -14,10 +14,6 @@ namespace CalculatorWithWpf
         {
             InitializeComponent();
 
-            acButton.Click += AcButton_Click;
-            negativeButton.Click += NegativeButton_Click;
-            percentageButton.Click += PercentageButton_Click;
-            equalButton.Click += EqualButton_Click;
         }
 
         private void EqualButton_Click(object sender, RoutedEventArgs e)
@@ -46,10 +42,15 @@ namespace CalculatorWithWpf
 
         private void PercentageButton_Click(object sender, RoutedEventArgs e)
         {
-            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            double tempNumber;
+            if (double.TryParse(resultLabel.Content.ToString(), out tempNumber))
             {
-                lastNumber = lastNumber / 100;
-                resultLabel.Content = lastNumber.ToString();
+                tempNumber = tempNumber / 100;
+                if(lastNumber != 0)
+                {
+                    tempNumber *= lastNumber;
+                }
+                resultLabel.Content = tempNumber.ToString();
             }
         }
 
@@ -65,6 +66,8 @@ namespace CalculatorWithWpf
         private void AcButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
+            result = 0;
+            lastNumber = 0;
         }
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
@@ -144,6 +147,11 @@ namespace CalculatorWithWpf
         }
         public static double Divide(double n1, double n2)
         {
+            if(n2 == 0)
+            {
+                MessageBox.Show("Division by 0 is not supported", "Wrong operation", MessageBoxButton.OK, MessageBoxImage.Error);
+                return 0;
+            }
             return n1 / n2;
         }
     }

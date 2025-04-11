@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using DesktopContactsApp.Classes;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -24,6 +25,17 @@ namespace DesktopContactsApp
         {
             NewContactsWindow newContactsWindow = new NewContactsWindow();
             newContactsWindow.ShowDialog();
+
+            ReadDatabase();
+        }
+
+        private void ReadDatabase()
+        {
+            using(SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.databasePath))
+            {
+                conn.CreateTable<Contact>();
+                var contacts = conn.Table<Contact>().ToList();
+            }
         }
     }
 }

@@ -67,5 +67,15 @@ namespace DesktopContactsApp
             //                    orderby c2.Email
             //                    select c2;
         }
+
+        private void contactListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Contact selectedContact = (Contact)contactListView.SelectedItem;
+            if(selectedContact != null)
+            {
+                ContactsDetailWindow contactsDetailsWindow = new ContactsDetailWindow(selectedContact);
+                contactsDetailsWindow.ShowDialog();
+            }
+        }
     }
 }

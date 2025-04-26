@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactWPFPractice", "ContactWPFPractice\ContactWPFPractice.csproj", "{95789B05-8A0B-4083-8B13-0A95A3B8E813}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95789B05-8A0B-4083-8B13-0A95A3B8E813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95789B05-8A0B-4083-8B13-0A95A3B8E813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95789B05-8A0B-4083-8B13-0A95A3B8E813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95789B05-8A0B-4083-8B13-0A95A3B8E813}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDCA604E-F68E-4298-BDD3-887ECEE3A0E8}
+	EndGlobalSection
+EndGlobal

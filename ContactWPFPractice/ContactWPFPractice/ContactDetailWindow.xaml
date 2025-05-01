@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactWPFPractice"
         mc:Ignorable="d"
-        Title="ContactDetailWindow" Height="450" Width="800">
+        Title="ContactDetailWindow" Height="300" Width="300">
     <Grid>
-        
+        <StackPanel>
+            <TextBlock x:Name="NameTextBox" Margin="0, 0, 0, 5"/>
+            <TextBlock x:Name="EmailTextBox" Margin="0, 0, 0, 5"/>
+            <TextBlock x:Name="PhoneTextBox" Margin="0, 0, 0, 5"/>
+            <Button Content="Update" x:Name="UpdateButton" Margin="0, 0, 0, 5" Click="UpdateButton_Click" />
+            <Button Content="Delete" x:Name="DeleteButton" Margin="0, 0, 0, 5" Click="DeleteButton_Cick"
+              Background="Red" Foreground="White" />
+        </StackPanel>
     </Grid>
 </Window>

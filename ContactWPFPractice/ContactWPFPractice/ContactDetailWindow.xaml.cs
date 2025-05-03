@@ -22,7 +22,7 @@ namespace ContactWPFPractice
     public partial class ContactDetailWindow : Window
     {
         Contact contact;
-        public ContactDetailWindow()
+        public ContactDetailWindow(Contact contact)
         {
             InitializeComponent();
             this.contact = contact;

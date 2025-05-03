@@ -20,5 +20,10 @@ namespace ContactWPFPractice.Model
         {
             return $"{Name} - {Email} - {Phone}";
         }
+
+        public static explicit operator Contact(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

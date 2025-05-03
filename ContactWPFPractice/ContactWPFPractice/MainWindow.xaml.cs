@@ -39,4 +39,14 @@ public partial class MainWindow : Window
             contactList.ItemsSource = contacts;
         }
     }
+
+    private void contactList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        Contact selectedContact = (Contact)contactList.SelectedIndex;
+        //if(selectedContact != null)
+        //{
+        //    ContactDetailWindow contactDetailWindow = new ContactDetailWindow(selectedContact);
+        //    contactDetailWindow.ShowDialog();
+        //}
+    }
 }

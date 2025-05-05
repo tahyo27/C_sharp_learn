@@ -8,7 +8,11 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <StackPanel>
-            <Button Content="New Content"/>
+            <Button Content="New Content"
+                    Click="Button_Click"/>
+            <TextBox Margin="0 5 0 5"
+                     TextChanged="TextBox_TextChanged"
+                       />
             <TextBox Margin="0 5 0 5"/>
             <ListView x:Name="contactList"
                       SelectionChanged="contactList_SelectionChanged"

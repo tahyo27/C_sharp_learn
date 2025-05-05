@@ -50,4 +50,17 @@ public partial class MainWindow : Window
         }
         ReadDataBase();
     }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        NewContactWindow newContactWindow = new NewContactWindow();
+        newContactWindow.ShowDialog();
+
+        ReadDataBase();
+    }
+
+    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
 }

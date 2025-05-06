@@ -61,6 +61,7 @@ public partial class MainWindow : Window
 
     private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        TextBox searchTextBox = sender as TextBox;
+        var filteredList = contacts.Where(c => c.Name.ToLower().Contains(searchTextBox.Text)).ToList();
     }
 }

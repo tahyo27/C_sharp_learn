@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ContactWPFPractice.Model;
 
 namespace ContactWPFPractice.Controls
 {
@@ -20,6 +21,13 @@ namespace ContactWPFPractice.Controls
     /// </summary>
     public partial class ContactControl : UserControl
     {
+        public Contact Contact
+        {
+            get { return (Contact)GetValue(ContactProperty); }
+            set { SetValue(ContactProperty, value); }
+        }
+
+        
         public ContactControl()
         {
             InitializeComponent();

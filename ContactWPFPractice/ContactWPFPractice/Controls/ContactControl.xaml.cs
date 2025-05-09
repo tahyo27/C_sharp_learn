@@ -27,7 +27,15 @@ namespace ContactWPFPractice.Controls
             set { SetValue(ContactProperty, value); }
         }
 
-        
+        // Using a DependencyProperty as the backing store for Contact.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ContactProperty =
+            DependencyProperty.Register("Contact", typeof(Contact), typeof(ContactControl), new PropertyMetadata(new Contact()
+            {
+                Name = "Name Lastname",
+                Phone = "(123) 456 789",
+                Email = "example@gmail.com"
+            }, SetText));
+
         public ContactControl()
         {
             InitializeComponent();

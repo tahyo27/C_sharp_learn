@@ -35,6 +35,17 @@ namespace ContactWPFPractice.Controls
                 Phone = "(123) 456 789",
                 Email = "example@gmail.com"
             }, SetText));
+        private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ContactControl control = d as ContactControl;
+
+            if (control != null)
+            {
+                control.nameTextBlock.Text = (e.NewValue as Contact).Name;
+                control.emailTextBlock.Text = (e.NewValue as Contact).Email;
+                control.phoneTextBlock.Text = (e.NewValue as Contact).Phone;
+            }
+        }
 
         public ContactControl()
         {

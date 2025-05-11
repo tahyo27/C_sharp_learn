@@ -12,7 +12,7 @@
             <TextBlock x:Name="EmailTextBox" Margin="0, 0, 0, 5"/>
             <TextBlock x:Name="PhoneTextBox" Margin="0, 0, 0, 5"/>
             <Button Content="Update" x:Name="UpdateButton" Margin="0, 0, 0, 5" Click="UpdateButton_Click" />
-            <Button Content="Delete" x:Name="DeleteButton" Margin="0, 0, 0, 5" Click="DeleteButton_Cick"
+            <Button Content="Delete" x:Name="DeleteButton" Margin="0, 0, 0, 5" Click="DeleteButton_Click"
               Background="Red" Foreground="White" />
         </StackPanel>
     </Grid>

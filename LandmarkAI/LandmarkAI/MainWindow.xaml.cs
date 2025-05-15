@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace LandmarkAI
 {
@@ -27,7 +28,11 @@ namespace LandmarkAI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog dialog = new OpenFileDialog();
+            if(dialog.ShowDialog() == true)
+            {
+                string fileName = dialog.FileName;
+            }
         }
     }
 }

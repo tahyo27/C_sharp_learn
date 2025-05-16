@@ -29,9 +29,12 @@ namespace LandmarkAI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image files (*.png;, *.jpg)|*.png;*.jpg;*jpeg|All files (*.*)";
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             if(dialog.ShowDialog() == true)
             {
                 string fileName = dialog.FileName;
+                selectedImage.Source = new BitmapImage(new Uri(fileName));
             }
         }
     }

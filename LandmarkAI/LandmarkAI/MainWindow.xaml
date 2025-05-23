@@ -28,7 +28,7 @@
                                     DisplayMemberBinding="{Binding Tag}"/>
                     <GridViewColumn Header="Probability" 
                                     Width="100"
-                                    DisplayMemberBinding="{Binding Probability}"/>
+                                    DisplayMemberBinding="{Binding Path=Probability}"/>
                 </GridView>
             </ListView.View>
         </ListView>

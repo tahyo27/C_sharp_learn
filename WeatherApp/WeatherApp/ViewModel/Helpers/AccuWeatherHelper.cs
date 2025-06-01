@@ -15,7 +15,7 @@ namespace WeatherApp.ViewModel.Helpers
         public const string CURRENT_CONDITIONS_ENDPOINT = "currentconditions/v1/{0}?apikey={1}";
         public const string API_KEY = "t9VWTvQ2YBP1QwHAeyaErCCZoPCoBcSo";
 
-        public static async List<City> Getcities(string query)
+        public static async Task<List<City>> Getcities(string query)
         {
             List<City> cities = new List<City>();
 
@@ -26,10 +26,16 @@ namespace WeatherApp.ViewModel.Helpers
                 var response = await client.GetAsync(url);
                 string json = await response.Content.ReadAsStringAsync();
 
-                cities = JsonConvert.DeserializeObject<>(json);
+                cities = JsonConvert.DeserializeObject<List<City>>(json);
             }
 
             return cities;
+        }
+
+        public static async Task<CurrentConditions> GetCurrentConditions(string cityKey)
+        {
+            CurrentConditions currentConditions = new CurrentConditions();
+            return currentConditions;
         }
     }
 }

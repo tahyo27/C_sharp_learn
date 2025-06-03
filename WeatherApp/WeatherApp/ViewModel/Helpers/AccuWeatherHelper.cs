@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using WeatherApp.Model;
 
 namespace WeatherApp.ViewModel.Helpers
@@ -35,6 +37,17 @@ namespace WeatherApp.ViewModel.Helpers
         public static async Task<CurrentConditions> GetCurrentConditions(string cityKey)
         {
             CurrentConditions currentConditions = new CurrentConditions();
+
+            string url = BASE_URL + string.Format(CURRENT_CONDITIONS_ENDPOINT, cityKey, API_KEY);
+
+            using (HttpClient client = new HttpClient())
+            {
+                var response = await client.GetAsync(url);
+                string json = await response.Content.ReadAsStringAsync();
+
+                currentConditions = (JsonConvert.DeserializeObject<List<CurrentConditions>>(json)).FirstOrDefault();
+            }
+
             return currentConditions;
         }
     }

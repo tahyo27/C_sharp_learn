@@ -63,7 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\WeatherVM.cs" />
+    <Compile Include="ViewModel\WeatherVM.cs" />
     <Compile Include="View\WeatherWindow.xaml.cs">
       <DependentUpon>WeatherWindow.xaml</DependentUpon>
     </Compile>

@@ -31,7 +31,9 @@
             </ListView>
         </StackPanel>
         <Grid Grid.Row="1"
-              Background="#4392f1">
+              Background="#4392f1"
+              DataContext="{Binding CurrentConditions}"
+              >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -42,7 +44,7 @@
                            FontSize="20"
                            Margin="20, 0"
                            />
-                <TextBlock Text="overcast"
+                <TextBlock Text="{Binding WeatherText}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20, 0"
@@ -50,7 +52,7 @@
             </StackPanel>
             <TextBlock Grid.Column="1"
                        VerticalAlignment="Center"
-                       Text="11 C"
+                       Text="{Binding Temperature.Metric.Value, StringFormat={}{0}°C}"
                        Foreground="#f4f4f8"
                        FontSize="30"
                        Margin="20, 0"

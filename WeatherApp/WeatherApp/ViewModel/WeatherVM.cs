@@ -30,6 +30,17 @@ namespace WeatherApp.ViewModel
                 OnPropertyChanged("CurrentConditions");
             } 
         }
+        private City selectedCity;
+
+        public City SelectedCity
+        {
+            get { return selectedCity; }
+            set
+            {
+                selectedCity = value;
+                OnPropertyChanged("SelectedCity");
+            }
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

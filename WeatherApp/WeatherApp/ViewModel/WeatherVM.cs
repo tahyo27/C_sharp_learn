@@ -49,5 +49,25 @@ namespace WeatherApp.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public WeatherVM()
+        {
+            SelectedCity = new City
+            {
+                LocalizedName = "New York",
+
+            };
+            CurrentConditions = new CurrentConditions
+            {
+                WeatherText = "Partly Cloudy",
+                Temperature = new Temperature
+                {
+                    Metric = new Units
+                    {
+                        Value = 21
+                    }
+                },
+            };
+        }
     }
 }

@@ -52,22 +52,25 @@ namespace WeatherApp.ViewModel
 
         public WeatherVM()
         {
-            SelectedCity = new City
+            if(DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
             {
-                LocalizedName = "New York",
-
-            };
-            CurrentConditions = new CurrentConditions
-            {
-                WeatherText = "Partly Cloudy",
-                Temperature = new Temperature
+                SelectedCity = new City
                 {
-                    Metric = new Units
+                    LocalizedName = "New York",
+
+                };
+                CurrentConditions = new CurrentConditions
+                {
+                    WeatherText = "Partly Cloudy",
+                    Temperature = new Temperature
                     {
-                        Value = 21
-                    }
-                },
-            };
+                        Metric = new Units
+                        {
+                            Value = 21
+                        }
+                    },
+                };
+            }
         }
     }
 }

@@ -5,13 +5,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Model;
+using WeatherApp.ViewModel.Helpers;
 
 namespace WeatherApp.ViewModel
 {
     public class WeatherVM : INotifyPropertyChanged
     {
         private string query;
+        public WeatherVM()
+        {
+            if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
+            {
+                SelectedCity = new City
+                {
+                    LocalizedName = "New York",
 
+                };
+                CurrentConditions = new CurrentConditions
+                {
+                    WeatherText = "Partly Cloudy",
+                    Temperature = new Temperature
+                    {
+                        Metric = new Units
+                        {
+                            Value = 21
+                        }
+                    },
+                };
+            }
+        }
         public string Query
         {
             get { return query; }
@@ -42,6 +64,10 @@ namespace WeatherApp.ViewModel
             }
         }
 
+        public async void MakeQuery()
+        {
+            var cities = await AccuWeatherHelper.Getcities(Query);
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -50,27 +76,6 @@ namespace WeatherApp.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public WeatherVM()
-        {
-            if(DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
-            {
-                SelectedCity = new City
-                {
-                    LocalizedName = "New York",
-
-                };
-                CurrentConditions = new CurrentConditions
-                {
-                    WeatherText = "Partly Cloudy",
-                    Temperature = new Temperature
-                    {
-                        Metric = new Units
-                        {
-                            Value = 21
-                        }
-                    },
-                };
-            }
-        }
+        
     }
 }

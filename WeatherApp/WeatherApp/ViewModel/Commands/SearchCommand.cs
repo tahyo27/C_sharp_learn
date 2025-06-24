@@ -19,6 +19,11 @@ namespace WeatherApp.ViewModel.Commands
 
         public bool CanExecute(object parameter)
         {
+            string query = parameter as string;
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return false;
+            }
             return true;
         }
 

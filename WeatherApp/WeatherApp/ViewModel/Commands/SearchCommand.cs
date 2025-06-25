@@ -11,6 +11,12 @@ namespace WeatherApp.ViewModel.Commands
     {
         public WeatherVM VM { get; set; }
 
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+
         public SearchCommand(WeatherVM vm)
         {
             this.VM = vm;

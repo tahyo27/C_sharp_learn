@@ -21,7 +21,6 @@ namespace WeatherApp.ViewModel.Commands
         {
             this.VM = vm;
         }
-        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,7 @@ namespace WeatherApp.ViewModel
                 };
             }
             SearchCommand = new SearchCommand(this);
+            Cities = new ObservableCollection<City>();
         }
         public string Query
         {
@@ -45,6 +47,8 @@ namespace WeatherApp.ViewModel
                 OnPropertyChanged("Query");
             }
         }
+
+        public ObservableCollection<City> Cities { get; set; }
 
         private CurrentConditions currentConditions;
         public CurrentConditions CurrentConditions 
@@ -71,6 +75,13 @@ namespace WeatherApp.ViewModel
         public async void MakeQuery()
         {
             var cities = await AccuWeatherHelper.Getcities(Query);
+
+            Cities.Clear();
+            foreach (var city in cities)
+            {
+                Cities.Add(city);
+            }
+            // TODO : 지움 Cities = new ObservableCollection<City>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

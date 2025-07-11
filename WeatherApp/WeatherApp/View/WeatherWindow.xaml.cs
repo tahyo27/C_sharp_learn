@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace WeatherApp.View
 {
     /// <summary>
-    /// WeatherWindow.xaml에 대한 상호 작용 논리
+    /// Interaction logic for WeatherWindow.xaml
     /// </summary>
     public partial class WeatherWindow : Window
     {

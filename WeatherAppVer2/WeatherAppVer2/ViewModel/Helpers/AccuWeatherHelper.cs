@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherApp.Model;
 using WeatherAppVer2.Model;
 
 namespace WeatherAppVer2.ViewModel.Helpers
@@ -33,6 +34,23 @@ namespace WeatherAppVer2.ViewModel.Helpers
             }
 
             return cities;
+        }
+
+        public static async Task<CurrrentConditions> GetCurrrentConditions(string cityKey)
+        {
+            CurrrentConditions currrentConditions = new CurrrentConditions();
+
+            string url = BASE_URL + string.Format(CURRENT_CONDITIONS_ENDPOINT, cityKey, API_KEY);
+
+            using (HttpClient client = new HttpClient())
+            {
+                var response = await client.GetAsync(url);
+                string json = await response.Content.ReadAsStringAsync();
+
+                currrentConditions = (JsonConvert.DeserializeObject<List<CurrrentConditions>>(json)).FirstOrDefault();
+            }
+
+            return currrentConditions;
         }
     }
 }

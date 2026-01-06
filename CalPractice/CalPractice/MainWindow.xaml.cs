@@ -26,5 +26,21 @@ namespace CalPractice
 
             resultLabel.Content = "14321";
         }
+
+        private void NumberButtonClick(object sender, RoutedEventArgs e)
+        {
+            if(sender is Button btn)
+            {
+                int.TryParse(btn.Content.ToString(), out int number);
+                if (resultLabel.Content.ToString().Equals("0")) 
+                {
+                    resultLabel.Content = number;
+                } 
+                else 
+                {
+                    resultLabel.Content = $"{resultLabel.Content}{number}";
+                }
+            }
+        }
     }
 }

@@ -20,11 +20,28 @@ namespace CalPractice
     /// </summary>
     public partial class MainWindow : Window
     {
+        double lastNumber;
         public MainWindow()
         {
             InitializeComponent();
 
-            resultLabel.Content = "14321";
+            Init();
+        }
+        public void Init()
+        {
+            resultLabel.Content = "0";
+            acButton.Click += AcButton_Click;
+            nagativeButton.Click += NagativeButton_Click;
+        }
+
+        private void NagativeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AcButton_Click(object sender, RoutedEventArgs e)
+        {
+            resultLabel.Content = "0";
         }
 
         private void NumberButtonClick(object sender, RoutedEventArgs e)

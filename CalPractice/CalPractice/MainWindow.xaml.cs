@@ -34,6 +34,7 @@ namespace CalPractice
             nagativeButton.Click += NagativeButton_Click;
         }
 
+
         private void NagativeButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -42,6 +43,22 @@ namespace CalPractice
         private void AcButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
+        }
+
+        private void OperationButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(sender is Button btn)
+            {
+                int.TryParse(resultLabel.Content.ToString(), out int result);
+
+                switch(btn.Name)
+                {
+                    case "multiplyButton":
+                        break;
+                }
+            }
+
+
         }
 
         private void NumberButtonClick(object sender, RoutedEventArgs e)

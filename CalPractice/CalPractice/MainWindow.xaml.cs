@@ -32,8 +32,19 @@ namespace CalPractice
             resultLabel.Content = "0";
             acButton.Click += AcButton_Click;
             nagativeButton.Click += NagativeButton_Click;
+            equalButton.Click += EqualButton_Click;
+
+            // Operation
+            multiplyButton.Click += OperationButton_Click;
+            minusButton.Click += OperationButton_Click;
+            plusButton.Click += OperationButton_Click;
+            divideButton.Click += OperationButton_Click;
         }
 
+        private void EqualButton_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         private void NagativeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -54,6 +65,12 @@ namespace CalPractice
                 switch(btn.Name)
                 {
                     case "multiplyButton":
+                        break;
+                    case "plusButton":
+                        break;
+                    case "minusButton":
+                        break;
+                    case "divideButton":
                         break;
                 }
             }

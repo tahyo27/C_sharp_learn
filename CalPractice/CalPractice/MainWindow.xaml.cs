@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,6 +28,7 @@ namespace CalPractice
             InitializeComponent();
 
             Init();
+
         }
         public void Init()
         {
@@ -89,6 +91,13 @@ namespace CalPractice
                 lastNumber = lastNumber * 100;
                 resultLabel.Content = lastNumber.ToString();
             }
+            equalButton.Click += EqualButton_Click;
+
+            // Operation
+            multiplyButton.Click += OperationButton_Click;
+            minusButton.Click += OperationButton_Click;
+            plusButton.Click += OperationButton_Click;
+            divideButton.Click += OperationButton_Click;
         }
 
         private void NagativeButton_Click(object sender, RoutedEventArgs e)
@@ -109,10 +118,6 @@ namespace CalPractice
         {
             if(sender is Button btn)
             {
-                if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
-                {
-                    resultLabel.Content = "0";
-                }
                 if(sender == multiplyButton)
                     selectedOperator = SelectedOperator.Multiplication;
                 if (sender == divideButton)

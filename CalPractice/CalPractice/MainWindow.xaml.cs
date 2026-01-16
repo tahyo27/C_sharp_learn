@@ -123,10 +123,6 @@ namespace CalPractice
         {
             if(sender is Button)
             {
-                if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
-                {
-                    resultLabel.Content = "0";
-                }
                 if(sender == multiplyButton)
                     selectedOperator = SelectedOperator.Multiplication;
                 if (sender == divideButton)

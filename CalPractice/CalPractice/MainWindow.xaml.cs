@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,6 +28,7 @@ namespace CalPractice
             InitializeComponent();
 
             Init();
+
         }
         public void Init()
         {
@@ -46,6 +48,11 @@ namespace CalPractice
             sevenButton.Click += NumberButton_Click;
             eightButton.Click += NumberButton_Click;
             nineButton.Click += NumberButton_Click;
+
+            plusButton.Click += OperationButton_Click;
+            multiplyButton.Click += OperationButton_Click;
+            minusButton.Click += OperationButton_Click;
+            divideButton.Click += OperationButton_Click;
 
             pointButton.Click += PointButton_Click;
         }
@@ -89,6 +96,13 @@ namespace CalPractice
                 lastNumber = lastNumber * 100;
                 resultLabel.Content = lastNumber.ToString();
             }
+            equalButton.Click += EqualButton_Click;
+
+            // Operation
+            multiplyButton.Click += OperationButton_Click;
+            minusButton.Click += OperationButton_Click;
+            plusButton.Click += OperationButton_Click;
+            divideButton.Click += OperationButton_Click;
         }
 
         private void NagativeButton_Click(object sender, RoutedEventArgs e)
@@ -107,7 +121,7 @@ namespace CalPractice
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
-            if(sender is Button btn)
+            if(sender is Button)
             {
                 if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
                 {

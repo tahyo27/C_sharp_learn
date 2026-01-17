@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -121,8 +122,12 @@ namespace CalPractice
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
-            if(sender is Button)
+            if (sender is Button)
             {
+                if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+                {
+                    resultLabel.Content = "0";
+                }
                 if(sender == multiplyButton)
                     selectedOperator = SelectedOperator.Multiplication;
                 if (sender == divideButton)
@@ -175,6 +180,12 @@ namespace CalPractice
         }
         public static double Divide(double n1, double n2)
         {
+            if(n2 == 0)
+            {
+                MessageBox.Show("Division by 0 is not supported",
+                    "Wrong operation", MessageBoxButton.OK, MessageBoxImage.Error);
+                return 0;
+            }
             return n1 / n2;
         }
     }

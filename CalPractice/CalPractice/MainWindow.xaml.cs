@@ -92,18 +92,14 @@ namespace CalPractice
 
         private void PercentButton_Click(object sender, RoutedEventArgs e)
         {
-            if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            double tempNumber;
+            if (double.TryParse(resultLabel.Content.ToString(), out tempNumber))
             {
-                lastNumber = lastNumber * 100;
-                resultLabel.Content = lastNumber.ToString();
+                tempNumber = tempNumber / 100;
+                if (lastNumber != 0)
+                    tempNumber *= lastNumber;
+                resultLabel.Content = tempNumber.ToString();
             }
-            equalButton.Click += EqualButton_Click;
-
-            // Operation
-            multiplyButton.Click += OperationButton_Click;
-            minusButton.Click += OperationButton_Click;
-            plusButton.Click += OperationButton_Click;
-            divideButton.Click += OperationButton_Click;
         }
 
         private void NagativeButton_Click(object sender, RoutedEventArgs e)
@@ -118,6 +114,8 @@ namespace CalPractice
         private void AcButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
+            result = 0;
+            lastNumber = 0;
         }
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)

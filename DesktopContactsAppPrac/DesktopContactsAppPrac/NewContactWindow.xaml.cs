@@ -23,5 +23,11 @@ namespace DesktopContactsAppPrac
         {
             InitializeComponent();
         }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Save contact
+            Close();
+        }
     }
 }

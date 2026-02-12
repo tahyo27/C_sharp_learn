@@ -35,14 +35,12 @@ namespace DesktopContactsAppPrac
                 Email = emailTextBox.Text,
                 Phone = phoneTextBox.Text
             };
-           
 
             using (SQLiteConnection connection = new SQLiteConnection(App.databasePath))
             {
                 connection.CreateTable<Contact>();
                 connection.Insert(contact);
             }
-
             Close();
         }
     }

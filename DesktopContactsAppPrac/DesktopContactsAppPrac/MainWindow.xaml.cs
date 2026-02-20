@@ -19,9 +19,13 @@ namespace DesktopContactsAppPrac
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Contact> contacts;
         public MainWindow()
         {
             InitializeComponent();
+
+            contacts = new List<Contact>();
+
             ReadDatabase();
         }
 
@@ -47,6 +51,11 @@ namespace DesktopContactsAppPrac
                     contactsListView.ItemsSource = contacts;
                 }
             }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -55,7 +55,11 @@ namespace DesktopContactsAppPrac
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            TextBox searchTextBox = sender as TextBox;
 
+            var filteredList = contacts.Where(c => c.Name.ToLower().Contains(searchTextBox.Text.ToLower())).ToList();
+
+            contactsListView.ItemsSource = filteredList;
         }
     }
 }

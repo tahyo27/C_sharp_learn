@@ -42,7 +42,7 @@ namespace DesktopContactsAppPrac
             using (SQLiteConnection conn = new SQLiteConnection(App.databasePath))
             {
                 conn.CreateTable<Contact>();
-                contacts = conn.Table<Contact>().ToList();
+                contacts = (conn.Table<Contact>().ToList()).OrderBy(c => c.Name).ToList();
             }
             if(contacts != null)
             {
@@ -58,6 +58,11 @@ namespace DesktopContactsAppPrac
             TextBox searchTextBox = sender as TextBox;
 
             var filteredList = contacts.Where(c => c.Name.ToLower().Contains(searchTextBox.Text.ToLower())).ToList();
+
+            //var filteredList2 = (from c2 in contacts
+            //                    where c2.Name.ToLower().Contains(searchTextBox.Text.ToLower())
+            //                    orderby c2.Email
+            //                    select c2.Id).ToList();
 
             contactsListView.ItemsSource = filteredList;
         }

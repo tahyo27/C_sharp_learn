@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DesktopContactsAppPrac.Classes;
+using SQLite;
 
 namespace DesktopContactsAppPrac
 {
@@ -19,9 +21,20 @@ namespace DesktopContactsAppPrac
     /// </summary>
     public partial class ContactDetailsWindow : Window
     {
-        public ContactDetailsWindow()
+        Contact contact;
+        internal ContactDetailsWindow(Contact contact)
         {
             InitializeComponent();
+            this.contact = contact;
+        }
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(App.databasePath))
+            {
+                conn.CreateTable<Contact>();
+                conn.Delete(contact);
+            }
+            Close();
         }
     }
 }

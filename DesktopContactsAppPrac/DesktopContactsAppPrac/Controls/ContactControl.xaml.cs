@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DesktopContactsAppPrac.Classes;
 
 namespace DesktopContactsAppPrac.Controls
 {
@@ -20,6 +21,17 @@ namespace DesktopContactsAppPrac.Controls
     /// </summary>
     public partial class ContactControl : UserControl
     {
+        private Contact contact;
+
+        public Contact Contact
+        {
+            get { return contact; }
+            set 
+            { 
+                contact = value;
+            }
+        }
+
         public ContactControl()
         {
             InitializeComponent();

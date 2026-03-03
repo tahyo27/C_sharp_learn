@@ -5,8 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DesktopContactsAppPrac.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="90" d:DesignWidth="300">
+    <Grid Background="LightGray">
+        <StackPanel Margin="5">
+            <TextBlock Text="Name Lastname"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       />
+            <TextBlock Text="example@domain"
+                       FontSize="15"
+                       Foreground="DodgerBlue"
+                       />
+            <TextBlock Text="000 - 000 - 0000"
+                       FontSize="15"
+                       FontStyle="Italic"
+                       />
+        </StackPanel>  
     </Grid>
 </UserControl>

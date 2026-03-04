@@ -8,15 +8,18 @@
              d:DesignHeight="90" d:DesignWidth="300">
     <Grid Background="LightGray">
         <StackPanel Margin="5">
-            <TextBlock Text="Name Lastname"
+            <TextBlock Text="Binding Name"
+                       x:Name="nameTextBlock"
                        FontSize="20"
                        FontWeight="Bold"
                        />
-            <TextBlock Text="example@domain"
+            <TextBlock Text="{Binding Email}"
+                       x:Name="emailTextBlock"
                        FontSize="15"
                        Foreground="DodgerBlue"
                        />
-            <TextBlock Text="000 - 000 - 0000"
+            <TextBlock Text="{Binding Phone}"
+                       x:Name="phoneTextBlock"
                        FontSize="15"
                        FontStyle="Italic"
                        />

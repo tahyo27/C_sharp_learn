@@ -29,6 +29,9 @@ namespace DesktopContactsAppPrac.Controls
             set 
             { 
                 contact = value;
+                nameTextBlock.Text = contact.Name;
+                phoneTextBlock.Text = contact.Phone;
+                emailTextBlock.Text = contact.Email;
             }
         }
 

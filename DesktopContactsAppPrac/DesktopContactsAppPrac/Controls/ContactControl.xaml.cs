@@ -25,13 +25,23 @@ namespace DesktopContactsAppPrac.Controls
 
         public Contact Contact
         {
-            get { return contact; }
+            get { return (Contact)GetValue(ContactProperty); }
             set 
             { 
-                contact = value;
-                nameTextBlock.Text = contact.Name;
-                phoneTextBlock.Text = contact.Phone;
-                emailTextBlock.Text = contact.Email;
+                SetValue(ContactProperty, value);
+            }
+        }
+
+        public static readonly DependencyProperty ContactProperty =
+            DependencyProperty.Register("Contact", typeof(Contact), typeof(ContactControl), new PropertyMetadata(null, SetText) );
+
+        private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is ContactControl control && e.NewValue is Contact newContact)
+            {
+                control.nameTextBlock.Text = newContact.Name;
+                control.emailTextBlock.Text = newContact.Email;
+                control.phoneTextBlock.Text = newContact.Phone;
             }
         }
 
